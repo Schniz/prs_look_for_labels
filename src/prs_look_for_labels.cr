@@ -17,9 +17,9 @@ post "/handle_pull_request" do |env|
   payload =
     if pull_request.valid?
       label_names = pull_request.labels.map(&.name)
-      {state: :success, description: "Woohoo! #{label_names.join(", ")}"}
+      {state: :success, description: "Alright! PR has valid label(s)."}
     else
-      {state: :pending, description: "Please add `PR: ` labels to the pull request"}
+      {state: :pending, description: "Don't forget to add a PR label!"}
     end
   create_status(pull_request, payload, token)
 end

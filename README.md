@@ -4,8 +4,17 @@ Look for PR labels in GitHub pull requests.
 
 ## Usage
 
-* Create a github token that can access the `status` scope
-* Set a webhook to `/handle_pull_request?token=${YOUR_TOKEN}`
+* Deploy to Heroku
+* Create labels with `PR: ` prefix :smile_cat:
+* Go to GitHub's project settings
+* Click on "Webhooks"
+* Click on "Add webhook"
+* Fill in `Payload URL` `HEROKU_DEPLOYMENT_URL/handle_pull_request?token=YOUR_GITHUB_TOKEN`.
+* Select `application/json` in `Content type`
+* Select `Let me select individual events`
+* On the list, uncheck `Pushes` and check `Pull requests`
+* Click `Add webhook`
+* :moneybag:
 
 ## Contributing
 

@@ -1,0 +1,17 @@
+name: prs_look_for_labels
+version: 0.1.0
+
+authors:
+  - Gal Schlezinger <gal@spitfire.co.il>
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+
+targets:
+  prs_look_for_labels:
+    main: src/prs_look_for_labels.cr
+
+crystal: 0.26.1
+
+license: MIT

@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: crystallang/crystal
     steps:
-      - run: apt-get update && apt-get install python-pip -y && pip install -U grip
+      - run: apt-get update && apt-get install python-pip -y && pip install -r requirements.txt
       - checkout
       - run: shards install
       - run: shards build --production --static

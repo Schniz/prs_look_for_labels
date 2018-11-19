@@ -1,29 +1,7 @@
-require "json"
 require "kemal"
 require "http"
 require "./markdown_to_html"
-
-module Models
-  struct Label
-    JSON.mapping(name: String)
-
-    def pr?
-      name.starts_with?("PR: ")
-    end
-  end
-
-  struct PullRequest
-    JSON.mapping(labels: Array(Label), statuses_url: String)
-
-    def valid?
-      labels.one? &.pr?
-    end
-  end
-
-  struct PullRequestPayload
-    JSON.mapping(pull_request: PullRequest)
-  end
-end
+require "./models"
 
 def create_status(pull_request : Models::PullRequest, payload)
   headers = HTTP::Headers.new
